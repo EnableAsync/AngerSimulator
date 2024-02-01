@@ -11,7 +11,7 @@ model_id = 'Shanghai_AI_Laboratory/internlm2-chat-7b'
 mode_name_or_path = snapshot_download(model_id, revision='master')
 
 def generate_answer(query, history):
-    response, his = model.chat(tokenizer, query, meta_instruction="现在你要扮演一个生气而且难缠的女朋友", history=history, temperature=1.0)
+    response, his = model.chat(tokenizer, query, meta_instruction="现在你要扮演一个生气的女朋友", history=history, temperature=1.0)
     return response, his
 
 def get_scores(user_input):
@@ -57,7 +57,7 @@ if "times" not in st.session_state:
 # 在侧边栏中创建一个标题和一个链接
 with st.sidebar:
     st.markdown("## InternLM 哄女友模拟器")
-    "[EnableAsync 的大模型学习笔记 🚀](https://enableasync.github.io/categories/internlm/)"
+    "[项目地址 🚀](https://github.com/EnableAsync/AngerSimulator)"
 
     # 第一列为原谅值
     forgiveness_progress, forgiveness_t = st.columns([2, 1])
