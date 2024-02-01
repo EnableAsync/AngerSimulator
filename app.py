@@ -4,7 +4,11 @@ import re
 from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
 score_pattern = re.compile(r'-?\d+(?=分)')
-mode_name_or_path = "/root/internlm2-chat-7b"
+
+from modelscope import snapshot_download
+
+model_id = 'Shanghai_AI_Laboratory/internlm2-chat-7b'
+mode_name_or_path = snapshot_download(model_id, revision='master')
 
 def generate_answer(query, history):
     response, his = model.chat(tokenizer, query, meta_instruction="现在你要扮演一个生气而且难缠的女朋友", history=history, temperature=1.0)
