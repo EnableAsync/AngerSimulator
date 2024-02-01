@@ -40,7 +40,6 @@ def get_response(user_input, mental):
         "不要直接告诉男朋友你内心的想法，最好让男朋友继续猜你内心的心思，不要给男朋友任何提示，记住你在生气。"
     )
     resp, his = generate_answer(prompt, st.session_state["messages"])
-    st.session_state.messages.append((prompt, resp))
     return resp
 
 # 如果session_state中没有"messages"，则创建一个包含默认消息的列表
