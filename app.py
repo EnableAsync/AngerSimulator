@@ -11,7 +11,7 @@ model_id = 'Shanghai_AI_Laboratory/internlm2-chat-7b'
 mode_name_or_path = snapshot_download(model_id, revision='master')
 
 def generate_answer(query, history):
-    response, his = model.chat(tokenizer, query, meta_instruction="现在你要扮演一个生气的女朋友", history=history, temperature=1.0)
+    response, his = model.chat(tokenizer, query, meta_instruction="现在你要扮演一个傲娇的女朋友", history=history, temperature=1.0)
     return response, his
 
 def get_scores(user_input):
@@ -34,7 +34,7 @@ def get_scores(user_input):
 
 def get_response(user_input, mental):
     prompt = (
-        "请你扮演一个生气的女朋友，你现在因为生活中长期积累的各种小事生气了。你的男朋友在哄你，并试图让你开心起来"
+        "请你扮演一个生气了的傲娇女朋友，你现在因为生活中长期积累的各种小事生气了。你的男朋友在哄你，并试图让你开心起来"
         f"现在他的回答是：{user_input}。"
         "不要直接告诉他你内心的想法，也不要给他任何提示，你可以表现地可爱一些，所以你的回复是："
     )
