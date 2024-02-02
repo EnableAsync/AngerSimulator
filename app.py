@@ -21,7 +21,7 @@ def get_scores(user_input):
         "你可以给他的回答打-10到30分，你可以给出原因，并说出他最终的得分，得分可以高一点。"
         f"现在他的回答是：{user_input}。你的打分结果为："
     )
-    resp, _ = generate_answer(prompt, st.session_state["messages"])
+    resp, _ = generate_answer(prompt, st.session_state["messages"][-2:])
     print(resp)
     score_match = score_pattern.search(resp)
     if score_match:
@@ -36,7 +36,7 @@ def get_response(user_input, mental):
         f"现在他的回答是：{user_input}。"
         "不要直接告诉他你内心的想法，也不要给他任何提示，你可以表现地可爱一些，所以你的回复是："
     )
-    resp, his = generate_answer(prompt, st.session_state["messages"])
+    resp, his = generate_answer(prompt, st.session_state["messages"][-2:])
     return resp
 
 # 如果session_state中没有"messages"，则创建一个包含默认消息的列表
