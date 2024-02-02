@@ -35,8 +35,8 @@ def get_scores(user_input):
 def get_response(user_input, mental):
     prompt = (
         "请你扮演一个生气的女朋友，你现在因为生活中长期积累的各种小事生气了。你的男朋友在哄你，并试图让你开心起来"
-        f"现在男朋友的回答是：{user_input}。"
-        "不要直接告诉男朋友你内心的想法，不要给男朋友任何提示，所以你的回复是："
+        f"现在他的回答是：{user_input}。"
+        "不要直接告诉他你内心的想法，也不要给他任何提示，所以你的回复是："
     )
     resp, his = generate_answer(prompt, st.session_state["messages"])
     return resp
