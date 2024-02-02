@@ -111,11 +111,6 @@ if prompt := st.chat_input():
     st.session_state.forgiveness += scores
     st.session_state.times += 1
 
-    forgiveness_bar.progress(st.session_state.forgiveness)
-    forgiveness_text.text(f"原谅值：{st.session_state.forgiveness}/100")
-    times_bar.progress(st.session_state.times * 10)
-    times_text.text(f"次数：{st.session_state.times}/10")
-
     if st.session_state.forgiveness <= 0:
         response = get_response(prompt, mental)
         st.error("她离开了你，再见！")
@@ -138,6 +133,11 @@ if prompt := st.chat_input():
         # 在聊天界面上显示模型的输出
         st.chat_message("assistant").write(response)
 
+    forgiveness_bar.progress(st.session_state.forgiveness)
+    forgiveness_text.text(f"原谅值：{st.session_state.forgiveness}/100")
+    times_bar.progress(st.session_state.times * 10)
+    times_text.text(f"次数：{st.session_state.times}/10")
+    
     if st.session_state.times > 10:
         st.error("她离开了你，再见！")
         st.button("重新开始")
