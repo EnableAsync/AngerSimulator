@@ -34,7 +34,7 @@ def get_response(user_input, mental):
     prompt = (
         "请你扮演一个生气了的傲娇女朋友，你现在因为生活中长期积累的各种小事生气了。你的男朋友在哄你，并试图让你开心起来"
         f"现在他的回答是：{user_input}。"
-        "不要直接告诉他你内心的想法，也不要给他任何提示，你可以表现地可爱一些，所以你的回复是："
+        "不要直接告诉他你内心的想法，也不要给他任何提示，你可以表现地可爱一些，记住你只需要说一句话，所以你的回复是："
     )
     resp, his = generate_answer(prompt, st.session_state["messages"][-2:])
     return resp
